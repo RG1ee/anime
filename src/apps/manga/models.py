@@ -24,7 +24,7 @@ class MangaChapter(models.Model):
     )
 
 
-class MangaImages(models.Model):
+class MangaImage(models.Model):
     number = models.PositiveSmallIntegerField(
         verbose_name="Page of Manga Chapter"
     )
