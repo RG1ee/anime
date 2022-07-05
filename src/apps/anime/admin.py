@@ -41,4 +41,4 @@ class AnimeSeriesAdmin(admin.ModelAdmin):
 
 @admin.register(AnimeVideo)
 class AnimeVideoAdmin(admin.ModelAdmin):
-    list_display = ("name_series",)
+    list_display = ("__str__", "name_series",)
