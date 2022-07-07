@@ -2,10 +2,20 @@ from django.db import models
 from django.core.validators import FileExtensionValidator
 
 
+
 class Anime(models.Model):
+    ANIME_STATUS = (
+        (1, 'Онгоинг'),
+        (2, 'Вышел'),
+        (3, 'Анонс'),
+    )
     composition = models.ForeignKey(
         'compositions.Composition', on_delete=models.CASCADE,
         verbose_name="Composition"
+    )
+    status = models.PositiveSmallIntegerField(
+        choices=ANIME_STATUS, verbose_name='anime release status',
+        null=True, blank=True
     )
 
     def __str__(self):

@@ -22,6 +22,7 @@ class AnimeVideoInline(admin.TabularInline):
 class AnimeAdmin(admin.ModelAdmin):
     list_display = ("__str__", "season_amount")
     search_fields = ("composition__name",)
+    list_filter = ("status",)
     inlines = (AnimeSeasonInline,)
 
 
