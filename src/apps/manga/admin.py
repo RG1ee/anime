@@ -28,7 +28,7 @@ class MangaAdmin(admin.ModelAdmin):
 
 @admin.register(MangaVolume)
 class MangaVolumeAdmin(admin.ModelAdmin):
-    list_display = ("name", "number", "chapter_amount")
+    list_display = ("composition_name", "number", "chapter_amount")
     inlines = (MangaChapterInline,)
 
 

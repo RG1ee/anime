@@ -19,6 +19,7 @@ class Anime(models.Model):
 
     @property
     def season_amount(self) -> int:
+        """This function counts all anime seasons"""
         try:
             return max([season.number for season in self.anime_seasons.all()])
         except ValueError:
@@ -46,6 +47,7 @@ class AnimeSeason(models.Model):
 
     @property
     def series_amount(self) -> int:
+        """This function counts all anime series"""
         try:
             return max([series.number for series in self.anime_series.all()])
         except ValueError:

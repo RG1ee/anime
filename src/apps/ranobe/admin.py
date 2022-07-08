@@ -29,7 +29,7 @@ class RanobeAdmin(admin.ModelAdmin):
 @admin.register(RanobeVolume)
 class RanobeVolumeAdmin(admin.ModelAdmin):
     list_display = ("name", "chapter_amount",)
-    search_fields = ("name",)
+    search_fields = ("composition_name",)
     inlines = (RanobeChapterInline,)
 
 

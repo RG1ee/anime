@@ -6,7 +6,7 @@ class Composition(models.Model):
     description = models.TextField(verbose_name="Short Description")
     image = models.ImageField(verbose_name="Image")
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.name
 
     class Meta:

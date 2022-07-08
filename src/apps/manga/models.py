@@ -1,19 +1,15 @@
 from django.db import models
 
+from apps.manga.const import TransferStatus
+
 
 class Manga(models.Model):
-    TRANSFER_STATUS = (
-        (1, 'Продолжается'),
-        (2, 'Заморожен'),
-        (3, 'Завершен'),
-        (4, 'Заброшен'),
-    )
     composition = models.ForeignKey(
         'compositions.Composition', on_delete=models.CASCADE,
         verbose_name="Composition"
     )
     translation = models.PositiveSmallIntegerField(
-        choices=TRANSFER_STATUS,
+        choices=TransferStatus.choices,
         verbose_name="Translated status: ", null=True, blank=True
     )
 
@@ -21,11 +17,12 @@ class Manga(models.Model):
         return self.composition.name
 
     @property
-    def volume_amount(self):
+    def volume_amount(self) -> int:
+        """This function counts all manga volumes"""
         try:
             return max([volume.number for volume in self.manga_volumes.all()])
         except ValueError:
-            return None
+            return
 
     class Meta():
         verbose_name_plural = 'Manga'
@@ -39,19 +36,21 @@ class MangaVolume(models.Model):
     )
 
     def __str__(self) -> str:
+        return f'{self.composition_name}:{self.number} volume'
+
+    @property
+    def composition_name(self) -> str:
         return self.manga.composition.name
 
     @property
-    def name(self) -> str:
-        return (self.manga.composition.name)
-
-    def chapter_amount(self):
+    def chapter_amount(self) -> int:
+        """This function counts all manga chapters"""
         try:
             return max(
                 [chapter.number for chapter in self.manga_chapters.all()]
             )
         except ValueError:
-            return None
+            return
 
     class Meta():
         verbose_name_plural = 'Manga Volume'
@@ -67,17 +66,19 @@ class MangaChapter(models.Model):
     )
 
     def __str__(self) -> str:
-        return self.volume.manga.composition.name
+        return f'{self.name_manga}:{self.number} chapter'
 
     @property
     def name_manga(self) -> str:
         return self.volume.manga.composition.name
 
-    def page_amount(self):
+    @property
+    def page_amount(self) -> int:
+        """This function counts all manga images"""
         try:
             return max([image.number for image in self.manga_images.all()])
         except ValueError:
-            return None
+            return
 
     class Meta():
         verbose_name_plural = 'Manga Chapter'
@@ -94,10 +95,10 @@ class MangaImage(models.Model):
     )
 
     def chapter_name(self) -> str:
-       return self.chapter.name
+        return self.chapter.name
 
     @property
-    def name_manga(self):
+    def name_manga(self) -> str:
         return self.chapter.volume.manga.composition.name
 
     class Meta:
