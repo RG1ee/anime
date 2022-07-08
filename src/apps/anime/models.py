@@ -1,32 +1,28 @@
 from django.db import models
 from django.core.validators import FileExtensionValidator
 
+from apps.anime.const import AnimeStatus
 
 
 class Anime(models.Model):
-    ANIME_STATUS = (
-        (1, 'Онгоинг'),
-        (2, 'Вышел'),
-        (3, 'Анонс'),
-    )
     composition = models.ForeignKey(
         'compositions.Composition', on_delete=models.CASCADE,
         verbose_name="Composition"
     )
     status = models.PositiveSmallIntegerField(
-        choices=ANIME_STATUS, verbose_name='anime release status',
+        choices=AnimeStatus.choices, verbose_name='anime release status',
         null=True, blank=True
     )
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.composition.name
 
     @property
-    def season_amount(self):
+    def season_amount(self) -> int:
         try:
             return max([season.number for season in self.anime_seasons.all()])
         except ValueError:
-            pass
+            return
 
     class Meta:
         verbose_name_plural = 'Anime'
@@ -41,18 +37,19 @@ class AnimeSeason(models.Model):
         related_name='anime_seasons'
     )
 
-    def __str__(self):
+    def __str__(self) -> str:
+        return f'{self.name}:{self.number} season'
+
+    @property
+    def name(self) -> str:
         return self.anime.composition.name
 
     @property
-    def name(self):
-        return self.anime.composition.name
-
-    def series_amount(self):
+    def series_amount(self) -> int:
         try:
             return max([series.number for series in self.anime_series.all()])
         except ValueError:
-            pass
+            return
 
     class Meta:
         verbose_name_plural = 'Anime Season'
@@ -69,14 +66,11 @@ class AnimeSeries(models.Model):
         related_name='anime_series'
     )
 
-    def __str__(self):
-        return self.season.anime.composition.name
-
-    def name_series(self):
-        return self.name
+    def __str__(self) -> str:
+        return f'{self.composition_name}:{self.number} series'
 
     @property
-    def name_anime(self):
+    def composition_name(self) -> str:
         return self.season.anime.composition.name
 
     class Meta:
@@ -95,7 +89,7 @@ class AnimeVideo(models.Model):
         AnimeSeries, on_delete=models.CASCADE, verbose_name="Anime Series"
     )
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.series.season.anime.composition.name
 
     @property

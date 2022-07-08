@@ -35,7 +35,7 @@ class AnimeSeasonAdmin(admin.ModelAdmin):
 
 @admin.register(AnimeSeries)
 class AnimeSeriesAdmin(admin.ModelAdmin):
-    list_display = ("name_anime", "name_series", "number",)
+    list_display = ("composition_name", "name", "number",)
     search_fields = ("name",)
     inlines = (AnimeVideoInline,)
 
