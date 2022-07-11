@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'apps.anime',
     'apps.ranobe',
     'apps.manga',
+    'apps.users',
+    'apps.achievements',
 ]
 
 MIDDLEWARE = [
@@ -106,6 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'users.User'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
