@@ -3,7 +3,7 @@ from django.contrib import admin
 from apps.users.models import User
 
 
-class CustomUserAdmin(User):
-    pass
-
-admin.site.register(User)
+@admin.register(User)
+class CustomUserAdmin(admin.ModelAdmin):
+    list_display = ("username", "rang",)
+    search_fields = ("username", "email",)

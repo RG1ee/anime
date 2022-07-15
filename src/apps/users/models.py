@@ -14,5 +14,7 @@ class User(AbstractUser):
     )
     achievement = models.ManyToManyField(Achievement)
 
+    def __str__(self):
+        return self.username
 
 models.signals.post_save.connect(add_welcome_achievement, User)
