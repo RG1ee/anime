@@ -7,7 +7,7 @@ from apps.anime.const import AnimeStatus
 class Anime(models.Model):
     composition = models.ForeignKey(
         'compositions.Composition', on_delete=models.CASCADE,
-        verbose_name="Composition"
+        verbose_name="Composition", related_name='anime'
     )
     status = models.PositiveSmallIntegerField(
         choices=AnimeStatus.choices, verbose_name='anime release status',
