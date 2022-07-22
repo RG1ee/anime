@@ -6,7 +6,7 @@ from apps.manga.const import TransferStatus
 class Manga(models.Model):
     composition = models.ForeignKey(
         'compositions.Composition', on_delete=models.CASCADE,
-        verbose_name="Composition"
+        verbose_name="Composition", related_name='manga'
     )
     translation = models.PositiveSmallIntegerField(
         choices=TransferStatus.choices,

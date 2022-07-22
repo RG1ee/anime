@@ -5,7 +5,8 @@ from apps.manga.const import TransferStatus
 
 class Ranobe(models.Model):
     composition = models.ForeignKey(
-        'compositions.Composition', models.CASCADE, verbose_name="Composition"
+        'compositions.Composition', models.CASCADE,
+        verbose_name="Composition", related_name='ranobe'
     )
     status = models.PositiveSmallIntegerField(
         choices=TransferStatus.choices, null=True, blank=True,

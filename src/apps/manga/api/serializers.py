@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from apps.compositions.api.serializer import CompositionSerializer
+from apps.compositions.api.serializers import CompositionSerializer
 from apps.manga.models import Manga
 
 class MangaSerializer(serializers.ModelSerializer):

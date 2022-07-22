@@ -1,6 +1,6 @@
 from rest_framework import viewsets
 
-from apps.ranobe.api.serializer import RanobeSerializer
+from apps.ranobe.api.serializers import RanobeSerializer
 from apps.ranobe.models import Ranobe
 
 

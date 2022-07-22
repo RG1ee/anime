@@ -1,6 +1,6 @@
 from rest_framework import viewsets
 
-from apps.compositions.api.serializer import CompositionSerializer
+from apps.compositions.api.serializers import CompositionSerializer
 from apps.compositions.models import Composition
 
 

@@ -1,6 +1,6 @@
 from rest_framework import viewsets
 
-from apps.anime.api.serializer import AnimeSerializer
+from apps.anime.api.serializers import AnimeSerializer
 from apps.anime.models import Anime
 
 

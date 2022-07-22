@@ -1,5 +1,5 @@
 from rest_framework import viewsets
-from apps.manga.api.serializer import MangaSerializer
+from apps.manga.api.serializers import MangaSerializer
 
 from apps.manga.models import Manga
 
