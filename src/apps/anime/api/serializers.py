@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from apps.compositions.models import Composition
-from apps.anime.models import AnimeSeason
+from apps.anime.models import AnimeSeason, AnimeVideo
 from apps.anime.models import Anime
 from apps.anime.models import AnimeSeries
 
@@ -12,11 +12,21 @@ class CompositionSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class AnimeVideoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AnimeVideo
+        fields = (
+            'id', 'video'
+        )
+
+
 class AnimeSeriesSerializer(serializers.ModelSerializer):
+    anime_videos = AnimeVideoSerializer(many=True)
+
     class Meta:
         model = AnimeSeries
         fields = (
-            'id', 'number', 'name', 'description'
+            'id', 'number', 'name', 'description', 'anime_videos'
         )
 
 

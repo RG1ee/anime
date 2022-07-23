@@ -88,7 +88,8 @@ class AnimeVideo(models.Model):
         )
     ], verbose_name="Video")
     series = models.ForeignKey(
-        AnimeSeries, on_delete=models.CASCADE, verbose_name="Anime Series"
+        AnimeSeries, on_delete=models.CASCADE, verbose_name="Anime Series",
+        related_name='anime_videos'
     )
 
     def __str__(self) -> str:
