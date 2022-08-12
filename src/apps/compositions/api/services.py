@@ -7,4 +7,4 @@ class CompositionNameFilter(filter.FilterSet):
 
     class Meta:
         model = Composition
-        fields = ('name',)
+        fields = ("name",)
