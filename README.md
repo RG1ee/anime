@@ -1,4 +1,5 @@
 # django anime
 ## Stack
-Python, Django,
+Python, Django, Django Rest Framework
+djangorestframework-Simple JWT
 SQLite3
