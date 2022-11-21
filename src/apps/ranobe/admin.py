@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from apps.ranobe.models import Ranobe, RanobeChapter, RanobeText, RanobeVolume
+from src.apps.ranobe.models import Ranobe, RanobeChapter, RanobeText, RanobeVolume
 
 
 class RanobeVolumeInline(admin.TabularInline):

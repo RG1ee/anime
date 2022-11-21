@@ -1,10 +1,10 @@
 from django.db import models
 
 from django.contrib.auth.models import AbstractUser
-from apps.achievements.models import Achievement
+from src.apps.achievements.models import Achievement
 
-from apps.users.const import RangUser
-from apps.users.signals import add_welcome_achievement
+from src.apps.users.const import RangUser
+from src.apps.users.signals import add_welcome_achievement
 
 
 class User(AbstractUser):

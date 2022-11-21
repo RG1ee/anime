@@ -1,9 +1,9 @@
 from rest_framework import serializers
 
-from apps.compositions.models import Composition
-from apps.anime.models import Anime
-from apps.manga.models import Manga
-from apps.ranobe.models import Ranobe
+from src.apps.compositions.models import Composition
+from src.apps.anime.models import Anime
+from src.apps.manga.models import Manga
+from src.apps.ranobe.models import Ranobe
 
 
 class AnimeSerializer(serializers.ModelSerializer):

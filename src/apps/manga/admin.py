@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from apps.manga.models import Manga, MangaChapter, MangaImage, MangaVolume
+from src.apps.manga.models import Manga, MangaChapter, MangaImage, MangaVolume
 
 
 class MangaVolumeInline(admin.TabularInline):

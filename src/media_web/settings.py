@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 from pathlib import Path
 
-from media_web.const import MY_SECRET_KEY
+from src.media_web.const import MY_SECRET_KEY
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -46,15 +46,16 @@ INSTALLED_APPS = [
     'django_extensions',
     'rest_framework',
     'django_filters',
+    "post_office",  
 
     # my apps
-    'apps.compositions',
-    'apps.anime',
-    'apps.ranobe',
-    'apps.manga',
-    'apps.users',
-    'apps.achievements',
-    'apps.api_auth',
+    'src.apps.compositions',
+    'src.apps.anime',
+    'src.apps.ranobe',
+    'src.apps.manga',
+    'src.apps.users',
+    'src.apps.achievements',
+    'src.apps.api_auth',
 ]
 
 MIDDLEWARE = [
@@ -67,7 +68,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'media_web.urls'
+ROOT_URLCONF = 'src.media_web.urls'
 
 TEMPLATES = [
     {
@@ -85,7 +86,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'media_web.wsgi.application'
+WSGI_APPLICATION = 'src.media_web.wsgi.application'
 
 
 # Database
@@ -129,6 +130,9 @@ REST_FRAMEWORK = {
     ]
 }
 
+EMAIL_BACKEND = 'post_office.EmailBackend'
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
@@ -149,6 +153,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+STATICFILES_DIRS = []
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
-from apps.compositions.models import Composition
-from apps.ranobe.models import Ranobe, RanobeChapter, RanobeVolume
+from src.apps.compositions.models import Composition
+from src.apps.ranobe.models import Ranobe, RanobeChapter, RanobeVolume
 
 
 class CompositionSerializer(serializers.ModelSerializer):

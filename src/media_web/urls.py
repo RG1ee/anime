@@ -21,10 +21,12 @@ from django.conf.urls.static import static
 
 from rest_framework.routers import SimpleRouter
 
-from apps.compositions.api.views import CompositionViewSet
-from apps.anime.api.views import AnimeViewSet
-from apps.manga.api.views import MangaViewSet
-from apps.ranobe.api.views import RanobeViewSet
+from src.apps.compositions.api.views import CompositionViewSet
+from src.apps.anime.api.views import AnimeViewSet
+from src.apps.manga.api.views import MangaViewSet
+from src.apps.ranobe.api.views import RanobeViewSet
+
+from src.apps.compositions.views import index
 
 
 router = SimpleRouter()
@@ -34,9 +36,10 @@ router.register('manga', MangaViewSet)
 router.register('ranobe', RanobeViewSet)
 
 urlpatterns = [
+    path('', index, name='home'),
     path('admin/', admin.site.urls),
     path('api/v1/', include(router.urls)),
-    path('api/v1/api-auth/', include('apps.api_auth.api.urls'))
+    path('api/v1/api-auth/', include('src.apps.api_auth.api.urls'))
 ]
 
 if settings.DEBUG:

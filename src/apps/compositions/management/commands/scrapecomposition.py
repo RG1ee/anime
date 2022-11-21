@@ -6,7 +6,7 @@ from django.core.management.base import BaseCommand
 from django.template.defaultfilters import slugify
 import requests as req
 
-from apps.compositions.models import Composition
+from src.apps.compositions.models import Composition
 
 
 class Command(BaseCommand):
