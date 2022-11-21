@@ -5,13 +5,13 @@ from rest_framework.decorators import action
 
 from django_filters import rest_framework as filter
 
-from apps.compositions.api.serializers import (
+from src.apps.compositions.api.serializers import (
     AnimeSerializer, MangaSerializer, RanobeSerializer
 )
-from apps.compositions.api.serializers import CompositionSerializer
-from apps.compositions.models import Composition
-from apps.users.api.permissions import IsStaffOrReadOnly
-from apps.compositions.api.services import CompositionNameFilter
+from src.apps.compositions.api.serializers import CompositionSerializer
+from src.apps.compositions.models import Composition
+from src.apps.users.api.permissions import IsStaffOrReadOnly
+from src.apps.compositions.api.services import CompositionNameFilter
 
 
 class CompositionViewSet(viewsets.ModelViewSet):

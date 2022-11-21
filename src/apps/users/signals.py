@@ -1,4 +1,4 @@
-from apps.achievements.models import Achievement
+from src.apps.achievements.models import Achievement
 
 
 def add_welcome_achievement(sender, instance, created: bool, **kwargs):

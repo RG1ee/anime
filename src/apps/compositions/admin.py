@@ -1,5 +1,5 @@
 from django.contrib import admin
-from apps.compositions.models import Composition
+from src.apps.compositions.models import Composition
 
 
 @admin.register(Composition)

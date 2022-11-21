@@ -1,6 +1,6 @@
 from django.db import models
 
-from apps.manga.const import TransferStatus
+from src.apps.manga.const import TransferStatus
 
 
 class Ranobe(models.Model):

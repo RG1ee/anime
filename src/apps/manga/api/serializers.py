@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
-from apps.compositions.models import Composition
-from apps.manga.models import Manga, MangaChapter, MangaImage, MangaVolume
+from src.apps.compositions.models import Composition
+from src.apps.manga.models import Manga, MangaChapter, MangaImage, MangaVolume
 
 
 class CompositionSerializer(serializers.ModelSerializer):

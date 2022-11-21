@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from apps.anime.models import Anime, AnimeSeason, AnimeSeries, AnimeVideo
+from src.apps.anime.models import Anime, AnimeSeason, AnimeSeries, AnimeVideo
 
 
 class AnimeSeasonInline(admin.TabularInline):

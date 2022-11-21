@@ -1,9 +1,9 @@
 from rest_framework import serializers
 
-from apps.compositions.models import Composition
-from apps.anime.models import AnimeSeason, AnimeVideo
-from apps.anime.models import Anime
-from apps.anime.models import AnimeSeries
+from src.apps.compositions.models import Composition
+from src.apps.anime.models import AnimeSeason, AnimeVideo
+from src.apps.anime.models import Anime
+from src.apps.anime.models import AnimeSeries
 
 
 class CompositionSerializer(serializers.ModelSerializer):

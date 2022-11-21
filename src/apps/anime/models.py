@@ -1,7 +1,7 @@
 from django.db import models
 from django.core.validators import FileExtensionValidator
 
-from apps.anime.const import AnimeStatus
+from src.apps.anime.const import AnimeStatus
 
 
 class Anime(models.Model):
